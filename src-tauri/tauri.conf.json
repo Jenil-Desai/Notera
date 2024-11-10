@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "notera",
+  "version": "0.1.0",
+  "identifier": "com.notera.app",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Notera - Capture Every Thought, Anytime.",
+        "width": 800,
+        "height": 600,
+        "theme": "Light"
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/Short-Logos/32x32.png",
+      "icons/Short-Logos/128x128.png",
+      "icons/Short-Logos/128x128@2x.png",
+      "icons/Short-Logos/icon.icns",
+      "icons/Short-Logos/icon.ico"
+    ]
+  }
+}
