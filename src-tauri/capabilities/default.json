@@ -24,6 +24,10 @@
           "path": "$DESKTOP/*"
         }
       ]
-    }
+    },
+    "os:default",
+    "os:allow-hostname",
+    "os:allow-os-type",
+    "store:default"
   ]
 }
