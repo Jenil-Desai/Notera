@@ -1,4 +1,4 @@
-import {ArrowRight, Brain, Lightbulb, Rocket} from "lucide-react"
+import {ArrowRight} from "lucide-react"
 import {Button} from "@/components/ui/button.tsx"
 import {Card} from "@/components/ui/card.tsx"
 import {motion} from 'framer-motion'
@@ -7,26 +7,14 @@ import {motion} from 'framer-motion'
 import {AppBreadcrums} from "@/custom-components/AppBreadcrums/AppBreadcrums.tsx";
 import {APP_LOGO, APP_NAME, APP_TAG_LINE} from "@/Constants/AppConstant.ts";
 import {homeBreadCrums} from "@/screens/Home/homeBreadCrums.ts";
+import {homeScreenFeatures} from "@/screens/Home/homeScreenFeatures.ts";
 
 export default function HomePage() {
 
-    const features = [
-        {
-            icon: <Brain className="h-8 w-8"/>,
-            title: "Capture Every Thought",
-            description: "Never let a brilliant idea slip away. Jot down your thoughts anytime, anywhere.",
-        },
-        {
-            icon: <Lightbulb className="h-8 w-8"/>,
-            title: "Spark Your Creativity",
-            description: "Organize and connect your ideas to ignite innovation and inspiration.",
-        },
-        {
-            icon: <Rocket className="h-8 w-8"/>,
-            title: "Elevate Your Productivity",
-            description: "Transform your notes into action. Boost your efficiency and achieve your goals.",
-        },
-    ]
+    const renderSlideIcon = (index: number) => {
+        const SlideIcon = homeScreenFeatures[index].icon;
+        return <SlideIcon className={"h-8 w-8 text-primary"}/>;
+    };
 
     return (
         <div className={"flex flex-col h-screen w-screen"}>
@@ -56,11 +44,11 @@ export default function HomePage() {
                         </div>
 
                         <div className="relative h-[400px] flex items-center justify-around gap-4">
-                            {features.map((feature, idx) => (
+                            {homeScreenFeatures.map((feature, idx) => (
                                 <Card
                                     className="p-6 h-80 w-100 flex flex-col justify-center text-center items-center space-y-4 shadow-lg"
                                     key={idx}>
-                                    <span className={"flex justify-center items-center"}>{feature.icon}</span>
+                                    <span className={"flex justify-center items-center"}>{renderSlideIcon(idx)}</span>
                                     <h3 className="text-xl font-semibold">{feature.title}</h3>
                                     <p className="text-muted-foreground">{feature.description}</p>
                                 </Card>

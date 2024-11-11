@@ -1,19 +1,11 @@
 import {Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail} from "@/components/ui/sidebar.tsx"
 import {ComponentProps, useEffect, useState} from "react";
 import {getCategories} from "@/utils/getCategories.ts";
-import {NavUser} from "@/components/nav-user.tsx";
+import {NavUser} from "@/custom-components/AppSidebar/nav-user.tsx";
 
 import {NavCategories} from "@/custom-components/AppSidebar/nav-categories.tsx";
 import {APP_NAME, APP_TAG_LINE} from "@/Constants/AppConstant.ts";
 import {SIDEBAR_LOGO} from "@/Constants/AppSidebarConstant.ts";
-
-const data = {
-    user: {
-        name: "shadcn",
-        email: "m@example.com",
-        avatar: "/avatars/shadcn.jpg",
-    }
-}
 
 export function AppSidebar({...props}: ComponentProps<typeof Sidebar>) {
     const [categories, setCategories] = useState<string[]>([]);
@@ -46,7 +38,7 @@ export function AppSidebar({...props}: ComponentProps<typeof Sidebar>) {
                 <NavCategories categories={categories}/>
             </SidebarContent>
             <SidebarFooter>
-                <NavUser user={data.user}/>
+                <NavUser/>
             </SidebarFooter>
             <SidebarRail/>
         </Sidebar>
