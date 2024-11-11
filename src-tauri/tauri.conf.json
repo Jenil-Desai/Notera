@@ -31,5 +31,16 @@
       "icons/Short-Logos/icon.icns",
       "icons/Short-Logos/icon.ico"
     ]
+  },
+  "plugins": {
+    "allowlist": {
+      "all": true,
+      "fs": {
+        "enabled": true,
+        "scope": [
+          "$DESKTOP/*"
+        ]
+      }
+    }
   }
 }

@@ -8,6 +8,22 @@
   "permissions": [
     "core:default",
     "shell:allow-open",
-    "fs:default"
+    "fs:default",
+    {
+      "identifier": "fs:allow-desktop-write",
+      "allow": [
+        {
+          "path": "$DESKTOP/*"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-desktop-read-recursive",
+      "allow": [
+        {
+          "path": "$DESKTOP/*"
+        }
+      ]
+    }
   ]
 }

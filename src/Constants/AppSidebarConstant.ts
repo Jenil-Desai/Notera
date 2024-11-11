@@ -1,0 +1,1 @@
+export const SIDEBAR_LOGO = "/assets/images/Notera-Transparent-Logo.png"
