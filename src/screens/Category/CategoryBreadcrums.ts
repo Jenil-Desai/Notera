@@ -1,7 +1,7 @@
 export const categoryBreadcrums = [
     {
         name: "Home",
-        url: "/",
+        url: "/home",
     },
     {
         name: "Category",

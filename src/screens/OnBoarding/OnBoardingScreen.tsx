@@ -21,8 +21,8 @@ export default function OnboardingScreen() {
             await store.reset();
             let firstName = await store.get('firstName');
             let lastName = await store.get('lastName');
+            if (!location) console.log(location);
             if (firstName && lastName) {
-                console.log(location);
                 setLocation('/home');
             }
         }
