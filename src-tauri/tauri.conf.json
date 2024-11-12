@@ -1,7 +1,7 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
   "productName": "notera",
-  "version": "2.2.0",
+  "version": "2.2.2",
   "identifier": "com.notera.app",
   "build": {
     "beforeDevCommand": "npm run dev",
