@@ -11,13 +11,21 @@ export function AppSidebar({...props}: ComponentProps<typeof Sidebar>) {
     const [categories, setCategories] = useState<string[]>([]);
 
     useEffect(() => {
+        let isMounted = true;
+
         async function main() {
             const allCategories: string[] = await getCategories();
-            setCategories(allCategories);
+            if (isMounted && JSON.stringify(allCategories) !== JSON.stringify(categories)) {
+                setCategories(allCategories);
+            }
         }
 
         main().then();
-    }, [])
+
+        return () => {
+            isMounted = false;
+        }
+    }, [categories])
 
     return (
         <Sidebar collapsible="icon" {...props}>

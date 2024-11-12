@@ -1,7 +1,8 @@
-import {ArrowRight} from "lucide-react"
 import {Button} from "@/components/ui/button.tsx"
 import {Card} from "@/components/ui/card.tsx"
+import {ArrowRight} from "lucide-react"
 import {motion} from 'framer-motion'
+import {useLocation} from "wouter";
 
 
 import {AppBreadcrums} from "@/custom-components/AppBreadcrums/AppBreadcrums.tsx";
@@ -10,7 +11,8 @@ import {homeBreadCrums} from "@/screens/Home/homeBreadCrums.ts";
 import {homeScreenFeatures} from "@/screens/Home/homeScreenFeatures.ts";
 
 export default function HomePage() {
-
+    const [location, setLocation] = useLocation();
+    console.log(location);
     const renderSlideIcon = (index: number) => {
         const SlideIcon = homeScreenFeatures[index].icon;
         return <SlideIcon className={"h-8 w-8 text-primary"}/>;
@@ -59,7 +61,11 @@ export default function HomePage() {
 
                         <div className="text-center">
                             <Button size="lg"
-                                    className="text-lg group bg-company-primary">
+                                    className="text-lg group bg-company-primary"
+                                    onClick={() => {
+                                        setLocation("/new-note")
+                                    }}
+                            >
                                 Start Your Journey
                                 <ArrowRight
                                     className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1"/>

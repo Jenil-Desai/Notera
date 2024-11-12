@@ -24,9 +24,10 @@ export function AppBreadcrums({items}: { items: AppBreadcrumsProps[] }) {
                     {items.map((item, index) => (
                         <>
                             <BreadcrumbItem className="hidden md:block" key={index}>
-                                <BreadcrumbLink href={item.url}>{item.name}</BreadcrumbLink>
+                                <BreadcrumbLink href={item.url} key={index + 1}>{item.name}</BreadcrumbLink>
                             </BreadcrumbItem>
-                            {items.length - 1 == index ? null : <BreadcrumbSeparator className="hidden md:block"/>}
+                            {items.length - 1 == index ? null :
+                                <BreadcrumbSeparator className="hidden md:block" key={index + 2}/>}
                         </>
                     ))}
                 </BreadcrumbList>
