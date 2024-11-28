@@ -18,7 +18,6 @@ export default function OnboardingScreen() {
     useEffect(() => {
         async function main() {
             const store = await load(APP_USERDETAILS_STORE_KEY, {autoSave: false});
-            await store.reset();
             let firstName = await store.get('firstName');
             let lastName = await store.get('lastName');
             if (!location) console.log(location);

@@ -16,10 +16,15 @@ import {
     SidebarMenuItem,
     useSidebar,
 } from "@/components/ui/sidebar.tsx"
+import { BaseDirectory, remove } from "@tauri-apps/plugin-fs"
 
 
 export function NavCategories({categories}: { categories: string[] }) {
     const {isMobile} = useSidebar()
+
+    async function handleCategoryDeletion(categoryName: string) {
+        await remove("Desktop/" + categoryName, {baseDir: BaseDirectory.Desktop, recursive: true})
+    }
 
     return (
         <SidebarGroup className="group-data-[collapsible=icon]:hidden">
@@ -45,11 +50,13 @@ export function NavCategories({categories}: { categories: string[] }) {
                                 align={isMobile ? "end" : "start"}
                             >
                                 <DropdownMenuItem>
-                                    <Folder className="text-muted-foreground"/>
-                                    <span>View Category</span>
+                                    <a href={`/category/${item}`} className="flex justify-between items-center">
+                                        <Folder className="text-muted-foreground"/>
+                                        <span>View Category</span>
+                                    </a>
                                 </DropdownMenuItem>
                                 <DropdownMenuSeparator/>
-                                <DropdownMenuItem>
+                                <DropdownMenuItem onClick={async() => await handleCategoryDeletion(item)}>
                                     <Trash2 className="text-muted-foreground"/>
                                     <span>Delete Category</span>
                                 </DropdownMenuItem>
