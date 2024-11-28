@@ -71,7 +71,10 @@ export function CategoryPage() {
                         </CardContent>
                     </Card>
                     {categoryData.map((note, idx) => (
-                        <Card key={idx} className="flex flex-col rounded-lg hover:scale-105 transition ease-in-out">
+                        <Card key={idx} className="flex flex-col rounded-lg hover:scale-105 transition ease-in-out"
+                            onClick={() => {
+                                setLocation(`/note/${params.category}/${note.name}`)
+                            }}>
                             <CardHeader>
                                 <CardTitle>{note.name}</CardTitle>
                             </CardHeader>

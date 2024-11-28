@@ -5,6 +5,7 @@ import OnboardingScreen from "@/screens/OnBoarding/OnBoardingScreen.tsx";
 import {CategoryPage} from "@/screens/Category/Category.tsx";
 import HomePage from "@/screens/Home/Home.tsx";
 import {Layout} from "@/layout.tsx";
+import NoteUpdatingScreen from "./screens/NoteUpdateScreen/NoteUpdateScreen";
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                 <Route path={"/home"} component={HomePage}/>
                 <Route path={"/new-note"} component={NoteTakingScreen}/>
                 <Route path={"/category/:category"} component={CategoryPage}/>
+                <Route path={"/note/:category/:noteName"} component={NoteUpdatingScreen}/>
                 <Route>404</Route>
             </Switch>
         </Layout>
