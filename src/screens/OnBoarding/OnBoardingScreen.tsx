@@ -1,5 +1,5 @@
 import {onBoardingFeatures} from "@/screens/OnBoarding/onBoardingFeatures.ts";
-import {ArrowLeft, ArrowRight, BookOpen} from "lucide-react"
+import {ArrowLeft, ArrowRight} from "lucide-react"
 import {AnimatePresence, motion} from 'framer-motion'
 import {load} from '@tauri-apps/plugin-store';
 import {Button} from "@/components/ui/button"
@@ -18,9 +18,9 @@ export default function OnboardingScreen() {
     useEffect(() => {
         async function main() {
             const store = await load(APP_USERDETAILS_STORE_KEY, {autoSave: false});
-            await store.reset();
             let firstName = await store.get('firstName');
             let lastName = await store.get('lastName');
+            if (!location) console.log(location);
             if (firstName && lastName) {
                 setLocation('/home');
             }
@@ -148,8 +148,9 @@ export default function OnboardingScreen() {
                                         className="object-cover w-full h-full"/>
                                 ) : (
                                     <div
-                                        className="absolute inset-0 bg-gradient-to-br from-primary/50 to-secondary/50 flex items-center justify-center">
-                                        <BookOpen className="h-32 w-32 text-background"/>
+                                        className="absolute inset-0 bg-gradient-to-br from-company-primary/50 to-primary/70 flex items-center justify-center">
+                                        <img src={"/assets/images/Notera-Transparent-Logo.png"} alt={"Notera Logo"}
+                                             className={"rounded-lg h-32 w-32"}/>
                                     </div>
                                 )}
                             </motion.div>
